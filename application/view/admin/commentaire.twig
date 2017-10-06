@@ -1,0 +1,78 @@
+{% extends '_templates/layout_admin.twig' %}
+
+{% block body %}
+    <div class="com">
+    <div class="jumbotron com" >
+        {% for com in commentaires %}
+            <div>
+                <table class="table">
+                    <tr>
+                        <th>Pseudo</th>
+                        <th>Commentaire</th>
+                    </tr>
+                    <div id="com">
+                    <tr>
+                        <td>{{ com.pseudo }}</td>
+                        <td>{{ com.commentaire }}</td>
+                    </div>
+                        <form action="{{ URL }}admin/commentaire" method="POST">
+                            <td>
+                                <button class="btn btn-success" type="submit" name="accept" value="{{ com.id }}"
+                                        onclick="return confirm('Vous êtes sur le point d\'accepter d\'afficher ce commentaire')">
+                                    Accepter
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger" type="submit" name="supprimer" value="{{ com.id }}"
+                                        onclick='return confirm("Attention vous allez supprimer cette donnée !")'>
+                                    Supprimer
+                                </button>
+                            </td>
+                        </form>
+                    </tr>
+                </table>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+
+<script language="javascript" type="text/javascript">
+    var timeout = setTimeout(reloadChat, 1000);
+
+    function reloadChat () {
+        $('#com').load('admin/commentaire #com',function () {
+            $(this).unwrap();
+            timeout = setTimeout(reloadChat, 1000);
+        });
+    }
+</script>
+<!--
+    <script>
+        $(document).ready(function(){
+            $(function(){
+                $('#formulaire').submit(function(e){
+                    e.preventDefault();
+                    var formulaire = $(this);
+                    var post_url = formulaire.attr('action');
+                    var post_data = formulaire.serialize();
+//Appel AJAX
+                    $.ajax({
+                        type: 'POST',
+                        url: post_url,
+                        data: post_data,
+                        success: function(msg) {
+//Affichage du formulaire avec un effet
+                            $(form).fadeOut(800, function(){
+                                form.html(msg).fadeIn().delay(2000);
+                            });
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    -->
+{% endblock %}

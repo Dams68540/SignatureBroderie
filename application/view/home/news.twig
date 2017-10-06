@@ -1,0 +1,14 @@
+{% extends '_templates/layout.twig' %}
+
+{% block description %}
+    <h1>{{ description[0].Titre }}</h1>
+    <p>{{ description[0].Texte }}</p>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid jumbotron main">
+        {% for actu in actualites %}
+            <p><a href="{{ URL }}articles/newsInfo/{{ actu.id }}">{{ actu.titre }}</a></p>
+        {% endfor %}
+    </div>
+{% endblock %}  

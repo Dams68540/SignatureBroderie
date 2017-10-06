@@ -1,0 +1,22 @@
+{% extends '_templates/layout_admin.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+    <form action="{{ URL }}admin/description" method="POST">
+        <input class="form-control" type="text" name="titreAdd" placeholder="Titre">
+        <input class="form-control" type="text" name="texteAdd" placeholder="Description">
+        <input class="btn btn-info" type="submit" name="Ajouter" value="Ajouter">
+    </form>
+    </div>
+
+    <div class="jumbotron">
+    {% for des in descriptions %}
+        <form action="{{ URL }}admin/description" method="POST">
+            <textarea class="form-control" name="titre" cols="50" rows="2">{{ des.Titre }}</textarea>
+            <textarea class="form-control" name="texte" cols="100" rows="6">{{ des.Texte }}</textarea>
+            <button class="btn btn-primary" type="submit" name="editer" value="{{ des.id }}" onclick="return confirm('Vous êtes sur le point d\'apporter une modification')">Modifier</button>
+            <button class="btn btn-danger" type="submit" name="Supprimer" value="{{ des.id }}" onclick='return confirm("Attention vous allez supprimer cette donnée !")'>Supprimer</button>
+        </form>
+    {% endfor %}
+    </div>
+{% endblock %}

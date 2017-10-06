@@ -1,0 +1,31 @@
+{% extends '_templates/layout.twig' %}
+
+{% block description %}
+    <h1>{{ description[0].Titre }}</h1>
+    <p>{{ description[0].Texte }}</p>
+{% endblock %}
+
+{% block promo %}
+    {% for promo in promotion %}
+        <div class="alert alert-danger promo" role="alert">{{ promo.titre }}</div>
+    {% endfor %}
+{% endblock %}
+
+{% block body %}
+        <div class="jumbotron block">
+    <div class="container">
+        <div class="col-md-6">
+            <img class="sizefixArt" src="{{ URL }}img/articles/{{ article.id_image }}" alt="img">
+        </div>
+        <div class="col-md-6">
+            <h1 class="nom_produit">{{ article.nom }}</h1>
+            <div class="jumbotron news">
+                <h3 class="Destitre">Description du produit :</h3>
+                <p>{{ article.description }}</p>
+            </div>
+            <p>Couleur :{{ article.couleur }}</p>
+        </div>
+        </div>
+    </div>
+
+{% endblock %}

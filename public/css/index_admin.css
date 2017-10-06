@@ -1,0 +1,138 @@
+.sizefix
+{
+    max-width: 200px;
+    height: 200px;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+textarea
+{
+    resize: none;
+}
+
+.commentaireAdmin
+{
+    height: 300px;
+    overflow: scroll;
+}
+
+#btn-deco
+{
+    border: none;
+    background-color: transparent;
+    color: #ff646b;
+}
+
+.logout
+{
+    margin: 0 15px;
+}
+
+.trier
+{
+    margin: 0 220px;
+    margin-bottom: 10px;
+}
+
+input
+{
+    margin: 8px;
+}
+
+.titre
+{
+    text-align: center;
+}
+
+#pseudo, #mdp
+{
+    width: 33%!important;
+}
+
+.form
+{
+    margin: auto;
+}
+
+.position-form
+{
+    margin: 18% auto;
+}
+
+.submit
+{
+    margin: 2% 35%;
+}
+
+.lien
+{
+    margin: -6.1% 55%;
+}
+
+.label
+{
+    margin: -6% 33%;
+    font-size: 15px;
+    color: black;
+}
+
+.body
+{
+    background: url("../img/image.jpg") center bottom no-repeat;
+}
+
+body {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    height: 100%;
+    margin:0;
+    padding:0;
+    background-size: 100% ;
+    width:100%;
+    color:black;
+}
+body:before {
+    content: "";
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: url("../img/image.jpg") center bottom no-repeat;
+    background-size: cover;
+    z-index: -1; /* Keep the background behind the content */
+    -webkit-filter: blur(0px);
+}
+
+li
+{
+    list-style-type: none;
+    margin: 5px auto;
+}
+
+.modal-body
+{
+    margin: 0 -20px;
+    width: 100%;
+}
+
+.artt
+{
+    border: solid 2px;
+}
+
+.table
+{
+    padding: 0 5px 0 5px;
+}
+
+.notif
+{
+    font-size: 11px;
+    color: white;
+    min-width: 20px;
+    min-height: 20px;
+    display: inline-block;
+    background-color: red;
+    text-align: center;
+    border-radius: 50%;
+}

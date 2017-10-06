@@ -1,0 +1,34 @@
+{% extends '_templates/layout_admin.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <form action="{{ URL }}admin/categorie" method="POST">
+            <p><input class="form-control" type="text" name="CateAdd" placeholder="Catégorie à ajouter"></p>
+            <input class="btn btn-info" type="submit" name="Ajouter" value="Ajouter">
+        </form>
+    </div>
+
+    <div class="jumbotron">
+
+        <form action="{{ URL }}admin/categorie" method="POST">
+            <table>
+                {% for cate in categories %}
+                    <tr>
+                        <td>
+                            <textarea class="form-control" name="texte" cols="30" rows="1">{{ cate.cate }}</textarea>
+                        </td>
+                        <td>
+                            <button class="btn btn-info" type="submit" name="editer" value="{{ cate.id }}" onclick="return confirm('Vous êtes sur le point d\'apporter une modification')">Modifier</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" type="submit" name="Supprimer" value="{{ cate.id }}" onclick='return confirm("Attention vous allez supprimer cette donnée !")'>Supprimer</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+
+        </form>
+    </div>
+
+{% endblock %}

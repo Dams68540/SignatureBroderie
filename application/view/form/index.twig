@@ -1,0 +1,21 @@
+{% extends '_templates/layout.twig' %}
+
+{% block description %}
+    <h1>{{ description[0].Titre }}</h1>
+    <p>{{ description[0].Texte }}</p>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <form action="{{ URL }}form/index.twig" method="POST">
+        <p>Nom :</p>
+        <input type="text">
+        <p>Prénom :</p>
+        <input type="text">
+        <p>Objet :</p>
+        <input type="text">
+        <p>Message :</p>
+        <textarea cols="200" rows="2"></textarea>
+    </form>
+    </div>
+{% endblock %}

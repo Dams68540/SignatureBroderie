@@ -1,0 +1,29 @@
+{% extends '_templates/layout_admin.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <form action="{{ URL }}admin/news" method="POST" enctype="multipart/form-data">
+            <textarea class="form-control" name="titreAdd" cols="120" rows="2" placeholder="Description de la news..."></textarea>
+            <input type="file" name="upload">
+            <input class="btn btn-primary" type="submit" name="Ajouter" value="Ajouter">
+        </form>
+    </div>
+
+    <div class="jumbotron">
+        {% for News in news %}
+            <form action="{{ URL }}admin/news" method="POST">
+                <table>
+                    <td>
+                        <textarea class="form-control" name="titre" cols="120" rows="2">{{ News.titre }}</textarea>
+                    </td>
+                    <td>
+                        <button class="fa fa-pencil edit" type="submit" name="editer" value="{{ News.id }}" onclick="return confirm('Vous êtes sur le point d\'apporter une modification')"></button>
+                    </td>
+                    <td>
+                        <button class="fa fa-trash-o delete" type="submit" name="Supprimer" value="{{ News.id }}" onclick='return confirm("Attention vous allez supprimer cette donnée !")'></button>
+                    </td>
+                </table>
+            </form>
+        {% endfor %}
+    </div>
+{% endblock %}

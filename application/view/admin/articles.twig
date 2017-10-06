@@ -1,0 +1,153 @@
+{% extends '_templates/layout_admin.twig' %}
+
+{% block body %}
+
+    <!-- Ajouter -->
+
+    <div class="jumbotron">
+        <form action="{{ URL }}admin/articles" method="POST" enctype="multipart/form-data">
+                <textarea class="form-control" name="nomAdd" placeholder="Le nom de l'article...(500 caractères)"></textarea>
+                <textarea class="form-control" name="descriptionAdd" placeholder="La description...(20 000 caractères)"></textarea>
+                <textarea class="form-control" name="couleurAdd"  placeholder="La couleur..."></textarea>
+                <select name="categorieAdd" class="form-control">
+                    {% for categories in categorie %}
+                        <option value="{{ categories.cate }}">{{ categories.cate }}</option>
+                    {% endfor %}
+                </select>
+                <input type="file" name="upload">
+                <input class="btn btn-info" type="submit" name="ajouter" value="Ajouter">
+        </form>
+    </div>
+
+
+    <!-- Trier -->
+
+    <div class="trier">
+        <form action="{{ URL }}admin/articles" method="POST">
+            Trier par :
+            <select name="categorie">
+                {% for categories in categorie %}
+                    <option value="{{ categories.cate }}">{{ categories.cate }}</option>
+                {% endfor %}
+            </select>
+            <input class="btn btn-primary" type="submit" name="envoyer">
+            <input class="btn btn-primary" type="submit" name="afficherTout" value="Tout afficher">
+        </form>
+    </div>
+
+    <!-- Vue des articles -->
+
+    {% if envoyer is not empty %}
+        {% for article in selectArticle %}
+            <!-- Button trigger modal -->
+            <ul class="col-md-4">
+                <li>
+                    <h4 class="name">{{ article.nom }}</h4>
+                </li>
+                <li>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal{{ article.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Panneau modifications "{{ article.nom }}"</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <form action="{{ URL }}admin/articles" method="POST">
+                                            <li><textarea class="form-control" name="Nom" id="" cols="30" rows="1">{{ article.nom }}</textarea></li>
+                                            <li><textarea class="form-control" name="Description" id="" cols="30" rows="1">{{ article.description }}</textarea></li>
+                                            <li><textarea class="form-control" name="Couleur" id="" cols="30" rows="1">{{ article.couleur }}</textarea></li>
+                                            <li><select name="Categorie" class="form-control">
+                                                    {% for categories in categorie %}
+                                                        {% if categories.cate == article.categorie %}
+                                                            <option value="{{ categories.cate }}" selected>{{ categories.cate }}</option>
+                                                        {% else %}
+                                                            <option value="{{ categories.cate }}">{{ categories.cate }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select></li>
+                                            <li><button class="btn btn-info form-control" type="submit" name="editer" value="{{ article.id }}" onclick="return confirm('Vous êtes sur le point d\'apporter une modification')">Modifier l'article</button></li>
+                                            <li><button class="btn btn-danger form-control" type="submit" name="Supprimer" value="{{ article.id }}" onclick='return confirm("Attention vous allez supprimer cette donnée !")'>Supprimer l'article</button></li>
+                                        </form>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="sizefix" src="{{ URL }}img/Articles/{{ article.id_image }}" alt="">
+
+
+                </li>
+                <li>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal{{ article.id }}">
+                        Actions
+                    </button>
+                </li>
+            </ul>
+
+        {% endfor %}
+    {% else %}
+        {% for article in articles %}
+            <!-- Button trigger modal -->
+            <ul class="col-md-3">
+                <li>
+                    {{ article.nom }}
+                </li>
+                <li>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal{{ article.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Panneau modifications "{{ article.nom }}"</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <form action="{{ URL }}admin/articles" method="POST">
+                                            <li><textarea class="form-control" name="Nom" id="" cols="30" rows="1">{{ article.nom }}</textarea></li>
+                                            <li><textarea class="form-control" name="Description" id="" cols="30" rows="1">{{ article.description }}</textarea></li>
+                                            <li><textarea class="form-control" name="Couleur" id="" cols="30" rows="1">{{ article.couleur }}</textarea></li>
+                                            <li><select name="Categorie" class="form-control">
+                                                    {% for categories in categorie %}
+                                                        {% if categories.cate == article.categorie %}
+                                                            <option value="{{ categories.cate }}" selected>{{ categories.cate }}</option>
+                                                        {% else %}
+                                                            <option value="{{ categories.cate }}">{{ categories.cate }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select></li>
+                                            <li><button class="btn btn-info form-control" type="submit" name="editer" value="{{ article.id }}" onclick="return confirm('Vous êtes sur le point d\'apporter une modification')">Modifier l'article</button></li>
+                                            <li><button class="btn btn-danger form-control" type="submit" name="Supprimer" value="{{ article.id }}" onclick='return confirm("Attention vous allez supprimer cette donnée !")'>Supprimer l'article</button></li>
+                                        </form>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="sizefix" src="{{ URL }}img/Articles/{{ article.id_image }}" alt="">
+
+
+
+                </li>
+                <li>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal{{ article.id }}">
+                        Actions
+                    </button>
+                </li>
+            </ul>
+        {% endfor %}
+        </div>
+    {% endif %}
+
+{% endblock %}

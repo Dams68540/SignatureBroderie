@@ -1,0 +1,27 @@
+{% extends '_templates/layout.twig' %}
+
+{% block description %}
+    <h1>{{ description[0].Titre }}</h1>
+    <p>{{ description[0].Texte }}</p>
+{% endblock %}
+
+{% block body %}
+
+    <section id="accordion">
+        {% for currentCategorie in categorie %}
+            <h3 id="title">{{ currentCategorie.cate }}</h3>
+            <div id="interieur">
+                    {% for article in articles.SelectArticle(currentCategorie.cate) %}
+                        <div class="col-md-3 articles">
+                            <a href="{{ URL }}articles/articleInfo/{{ article.id }}">
+                                <img class="sizefix" src="{{ URL }}img/articles/{{ article.id_image }}" alt="img">
+                                <h4>{{ article.nom }}</h4>
+                                <p>{{ article.description|truncate(20, true) }}</p>
+                                <p>{{ article.couleur }}</p>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+        {% endfor %}
+    </section>
+{% endblock %}

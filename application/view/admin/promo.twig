@@ -1,0 +1,19 @@
+{% extends '_templates/layout_admin.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <form action="{{ URL }}admin/promo" method="POST">
+            <p><input class="form-control" type="text" name="PromoAdd" placeholder="Promotion..."></p>
+            <input class="btn btn-info" type="submit" name="Ajouter" value="Ajouter">
+        </form>
+    </div>
+    {% for promo in promotion %}
+        <div class="jumbotron">
+        <form action="{{ URL }}admin/promo" method="POST">
+            <textarea name="titre" class="form-control">{{ promo.titre }}</textarea>
+            <button class="fa fa-pencil edit" type="submit" name="editer" value="{{ promo.id }}" onclick="return confirm('Vous êtes sur le point d\'apporter une modification')"></button>
+            <button class="fa fa-trash-o delete" type="submit" name="Supprimer" value="{{ promo.id }}" onclick='return confirm("Attention vous allez supprimer cette donnée !")'></button>
+        </form>
+        </div>
+    {% endfor %}
+{% endblock %}

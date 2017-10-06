@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Signature Broderie</title>
+    <meta name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- JS -->
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha256-rByPlHULObEjJ6XQxW/flG2r+22R5dKiAoef+aXWfik=" crossorigin="anonymous" />
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="{{ URL }}css/index.css">
+
+</head>
+<body>
+
+<header>
+    <div class="jumbotron img">
+        <nav class="navbar navbar-modif">
+            <div class="container-fluid header">
+                <p class="navbar-text loc">Feldkirch 68540</p>
+                <ul class="nav nav-pills nav-justified nav-link">
+                    <li role="presentation" class="active"><a class="linkactive" href="{{ URL }}">Accueil</a></li>
+                    <li role="presentation"><a class="" href="{{ URL }}articles">Articles</a></li>
+                    <li role="presentation"><a class="" href="{{ URL }}home/news">News</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container description">
+            <h1 class="desTitle">{{ description[0].Titre }}</h1>
+            <p>Plaids, nids d'ange, couvertures, draps de douche, protège carnet de santé...</p>
+
+            <div class="navbar-bottom">
+                <a class="btn btn-contact" href="mailto:mailcontact@signaturebroderie.com">Nous contacter</a>
+                <a class="fb" id="linkHead" target="_blank"
+                   href="https://www.facebook.com/Signature-Broderie-184335875002911/">
+                    <span class="fa fa-facebook-official fb"></span></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% block promo %}
+{% endblock %}
+
+
+{% block body %}
+{% endblock %}
+
+
+<div class="jumbotron container-fluid footer">
+    <footer>
+        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSignature-Broderie-184335875002911%2F&tabs=timeline&width=300&height=250&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                width="300" height="250" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true">
+        </iframe>
+    </footer>
+</div>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+{% block js %}
+
+{% endblock %}
+
+<script>
+    $( function() {
+        $( "#accordion" ).accordion({
+            collapsible: true,
+            active: false,
+            heightStyle: "content"
+        });
+    } );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+{% extends '_templates/layout.twig' %}
+
+{#<a href="{{ URL }}article/infoNews/{{ id }}">{{ titre }}</a>
+{{ dump(id) }}#}
+
+
+{% block promo %}
+    {% for promo in promotion %}
+        <div class="alert promo" role="alert">{{ promo.titre }}</div>
+    {% endfor %}
+{% endblock %}
+
+{% block body %}
+    <div class="Destexte">
+        {{ description[0].Texte }}
+    </div>
+    <div class="container main">
+
+        <div id="content">
+
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel" data-slide-to="1"></li>
+                    <li data-target="#carousel" data-slide-to="2"></li>
+                    <li data-target="#carousel" data-slide-to="3"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active sizefix_carousel">
+                        <img src="{{ URL }}img/Articles/1.jpg" alt="123">
+                        <div class="carousel-caption">
+
+                        </div>
+                    </div>
+                    <div class="item sizefix_carousel">
+                        <img src="{{ URL }}img/Articles/8.jpg" alt="123">
+                        <div class="carousel-caption">
+
+                        </div>
+                    </div>
+                    <div class="item sizefix_carousel">
+                        <img src="{{ URL }}img/Articles/16.jpg" alt="123">
+                        <div class="carousel-caption">
+
+                        </div>
+                    </div>
+                    <div class="item sizefix_carousel">
+                        <img src="{{ URL }}img/Articles/31.jpg" alt="123">
+                        <div class="carousel-caption">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid news-block">
+        {% for actu in actualites %}
+            <div class="new col-md-4">
+                    <div class="jumbotron news">
+                <a href="{{ URL }}articles/newsInfo/{{ actu.id }}">
+                        <img class="sizefix" src="{{ URL }}img/News/{{ actu.id_image }}" alt="img"/>
+                        <div class="border-separ"></div>
+                        <p class="news-titre">{{ actu.titre }}</p>
+                </a>
+                    </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

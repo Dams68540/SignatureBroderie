@@ -1,0 +1,73 @@
+{% extends '_templates/layout_admin.twig' %}
+
+{% block body %}
+        <div class="jumbotron">
+            <h2>Description :</h2>
+            <div>
+                <h2>{{ description[0].Titre }}</h2>
+                <p>{{ description[0].Texte }}</p>
+                <a class="btn btn-primary" href="{{ URL }}admin/description">Modifier</a>
+            </div>
+        </div>
+        <div class="jumbotron">
+            <h2>Ajouter un texte promo :</h2>
+            <form action="{{ URL }}admin/index" method="POST">
+                <table>
+                    <p><input class="form-control" type="text" name="PromoAdd" placeholder="Promo"></p>
+                    <input class="btn btn-info" type="submit" name="Ajouter" value="Ajouter">
+                </table>
+            </form>
+        </div>
+        <div class="jumbotron">
+            <h2>Ajouter une catégorie :</h2>
+            <form action="{{ URL }}admin/index" method="POST">
+                <table>
+                    <p><input class="form-control" type="text" name="CateAdd" placeholder="Catégorie à ajouter"></p>
+                    <input class="btn btn-info" type="submit" name="Ajouter" value="Ajouter">
+                </table>
+            </form>
+        </div>
+    {#<div class="jumbotron">
+        <h2>Derniers commentaires sur la page :</h2>
+            <div class="jumbotron commentaireAdmin">
+        {% for com in commentaire %}
+                <p>{{ com.pseudo }} : {{ com.commentaire }} : {{ com.Date }} : news n°{{ com.id_news }}</p>
+        {% endfor %}
+            </div>
+    </div>
+    <div class="jumbotron">
+        <h2>Ajouter une news :</h2>
+        <form action="{{ URL }}admin/news" method="POST" enctype="multipart/form-data">
+            <textarea class="form-control" name="titreAdd" cols="120" rows="2" placeholder="Description de la news..."></textarea>
+            <input class="form-control" type="file" name="upload">
+            <input class="btn btn-primary" type="submit" name="Ajouter" value="Ajouter">
+        </form>
+    </div>#}
+    <div class="jumbotron">
+        <h2>Ajouter un article :</h2>
+        <form action="{{ URL }}admin" method="POST" enctype="multipart/form-data">
+            <td>
+                <textarea class="form-control" name="nomAdd" placeholder="Le nom de l'article...(500 caractères)"></textarea>
+            </td>
+            <td>
+                <textarea class="form-control" name="descriptionAdd" placeholder="La description...(20 000 caractères)"></textarea>
+            </td>
+            <td>
+                <textarea class="form-control" name="couleurAdd"  placeholder="La couleur..."></textarea>
+            </td>
+            <td>
+                <select name="categorieAdd" class="form-control">
+                        {% for categories in categorie %}
+                            <option value="{{ categories.cate }}">{{ categories.cate }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <input class="form-control" type="file" name="upload">
+                </td>
+                <td>
+                    <input class="btn btn-primary" type="submit" name="ajouter" value="Ajouter">
+                </td>
+            </form>
+        </div>
+{% endblock %}

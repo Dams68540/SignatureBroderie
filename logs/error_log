@@ -1,0 +1,17 @@
+[Thu Sep 21 09:57:43 2017] [error] [client 127.0.0.1] Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Thu Sep 21 09:58:40 2017] [error] [client 127.0.0.1] File does not exist: /Applications/MAMP/htdocs/SignatureBroderie/web
+[Thu Sep 21 09:58:56 2017] [error] [client 127.0.0.1] Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Thu Sep 21 14:50:39 2017] [error] [client 127.0.0.1] Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Thu Sep 21 14:50:42 2017] [error] [client 127.0.0.1] Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Thu Sep 21 14:50:48 2017] [error] [client 127.0.0.1] Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
+[Mon Sep 25 14:16:55 2017] [error] [client 127.0.0.1] Response header name 'Location ' contains invalid characters, aborting request
+[Mon Sep 25 14:17:11 2017] [error] [client 127.0.0.1] Response header name 'Location ' contains invalid characters, aborting request
+[Mon Sep 25 14:18:34 2017] [error] [client 127.0.0.1] Response header name 'Location ' contains invalid characters, aborting request
+[Mon Sep 25 14:18:36 2017] [error] [client 127.0.0.1] Response header name 'Location ' contains invalid characters, aborting request
+[Tue Sep 26 16:03:12 2017] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /Applications/MAMP/htdocs/SignatureBroderie/public/img/Articles/, referer: http://signaturebroderie.lan:8888/admin/articles
+[Tue Sep 26 16:03:27 2017] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /Applications/MAMP/htdocs/SignatureBroderie/public/img/Articles/, referer: http://signaturebroderie.lan:8888/admin/articles
+[Tue Sep 26 16:03:40 2017] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /Applications/MAMP/htdocs/SignatureBroderie/public/img/Articles/, referer: http://signaturebroderie.lan:8888/admin/articles
+[Tue Sep 26 16:04:40 2017] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /Applications/MAMP/htdocs/SignatureBroderie/public/img/Articles/, referer: http://signaturebroderie.lan:8888/admin/articles
+[Tue Sep 26 16:04:50 2017] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /Applications/MAMP/htdocs/SignatureBroderie/public/img/Articles/, referer: http://signaturebroderie.lan:8888/admin/articles
+[Tue Sep 26 16:05:19 2017] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /Applications/MAMP/htdocs/SignatureBroderie/public/img/Articles/, referer: http://signaturebroderie.lan:8888/admin/articles
+[Tue Sep 26 16:05:32 2017] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /Applications/MAMP/htdocs/SignatureBroderie/public/img/Articles/, referer: http://signaturebroderie.lan:8888/admin/articles
